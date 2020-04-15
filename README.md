@@ -3,6 +3,9 @@ Leaning Angular with Coursera
 
 ## Links
 - https://stackblitz.com/ - Editer for browser
+- https://git-scm.com/docs - Git commands
+- http://ndpsoftware.com/git-cheatsheet.html - Git cheatsheet
+- https://github.com/johnpapa/lite-server -  Lite server
 
 ## Git commands
 - git log -oneline (See a brief log of commits)
@@ -16,6 +19,7 @@ Leaning Angular with Coursera
 ## Node commands
 - npm init (Create package.json file)
 - npm install (installs missing modules, these modules are normally not synced with the git repository)
+- npm start
 
 
   
