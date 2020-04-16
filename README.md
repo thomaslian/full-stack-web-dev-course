@@ -21,5 +21,14 @@ Leaning Angular with Coursera
 - npm install (installs missing modules, these modules are normally not synced with the git repository)
 - npm start
 
+## Angular commands
+- ng help
+- ng new <name> --style=scss (Create new angular application. Uses scss as css style)
+
+## Library vs Framework
+- Library - A collection of functions which are useful when writing web apps. Your code is in charge and it calls into the library when it sees fit. (Example jQuery)
+- Framework - A particular implementation of a web application, where your code fills in the details. The framework is in charge and it calls into your code when it need something app specific. (Example Angular, Ember...)
+- Imperative vs Declarative programming
+
 
   
