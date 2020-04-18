@@ -43,6 +43,7 @@ Leaning Angular with Coursera
 - ng help
 - ng new <name> --style=scss (Create new angular application. Uses scss as css style)
 - ng serve --open (Compile the project and open a tab in defualt browser)
+- ng generate component menu (Generates a component named menu)
 
 ## Library vs Framework
 - Library - A collection of functions which are useful when writing web apps. Your code is in charge and it calls into the library when it sees fit. (Example jQuery)
