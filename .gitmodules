@@ -1,0 +1,3 @@
+[submodule "conFusion"]
+        path = conFusion
+        url = https://github.com/thomaslian/conFusion.git

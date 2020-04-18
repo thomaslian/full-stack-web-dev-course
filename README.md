@@ -5,6 +5,7 @@ Leaning Angular with Coursera
 - Interpolation
 - One-way data binding
 - Angular decorators
+- Angular components
 - Angular CLI - Command line interface for Angular
 - Angular material module - Provide layout components that can be used when designing new templates for Angular components.
 - Angular flex layout module - Provides support for using CSS flex within Angular templates for Angular components.
