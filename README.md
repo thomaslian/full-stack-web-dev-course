@@ -6,12 +6,14 @@ Leaning Angular with Coursera
 - One-way data binding
 - Angular decorators
 - Angular components
+- Angular structural directives - Responsible for HTML layout. Shape or reshape the DOM's structure (adding, removing, or manipulating elements). ngIf, ngFor and ngSwitch.
 - Angular CLI - Command line interface for Angular
 - Angular material module - Provide layout components that can be used when designing new templates for Angular components.
 - Angular flex layout module - Provides support for using CSS flex within Angular templates for Angular components.
 - HammerJS - (Used by Angular for supporting some gestures within the Angular application)
 
 ## Links
+- https://angular.io/docs
 - https://stackblitz.com/ - Editer for browser
 - https://git-scm.com/docs - Git commands
 - http://ndpsoftware.com/git-cheatsheet.html - Git cheatsheet
