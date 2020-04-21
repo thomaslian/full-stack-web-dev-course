@@ -1,5 +1,7 @@
 # learning-angular
-Leaning Angular with Coursera
+Leaning Angular with Coursera. 
+Course name: Front-End JavaScript Frameworks: Angular
+Link: https://www.coursera.org/learn/angular
 
 ## Keywords
 - Interpolation
