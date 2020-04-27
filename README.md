@@ -5,7 +5,15 @@ Link: https://www.coursera.org/learn/angular
 
 ## Keywords
 - Interpolation
-- One-way data binding
+- One-way data binding from data source to view target - Data flow between the component file and template (DOM) file (for example {{value}}, [property] = "value", bind-target="expression")
+- One-way data binding from view target to data source - Data flow between the template file and the compnent file. (For example (target)="statement", on-target="statement")
+- Two way data binding - Helps users exchange data from the component to the view (DOM), and the other way. (For example [(target)]="expression", bindon-target="expression")
+- "Banana in a box" = [()]
+- MVC framework
+- MVVM framework
+- Dependency Injection
+- Angular services - Encompassing any value, function, or feature that an app needs
+- Angular routing - For single page applications
 - Angular decorators
 - Angular components
 - Angular structural directives - Responsible for HTML layout. Shape or reshape the DOM's structure (adding, removing, or manipulating elements). ngIf, ngFor and ngSwitch.
@@ -42,12 +50,17 @@ Link: https://www.coursera.org/learn/angular
 - npm install @angular/animations@6.1.7 --save (Installs Angular animations)
 - npm install hammerjs@2.0.8 --save (Installs HammerJS)
 - npm install --save @angular/flex-layout@6.0.0-beta.18 (installs Angular flex layout)
+- npm install font-awesome@4.7.0 --save (Installs font awesome)
 
 ## Angular CLI commands
 - ng help
 - ng new <name> --style=scss (Create new angular application. Uses scss as css style)
 - ng serve --open (Compile the project and open a tab in defualt browser)
 - ng generate component menu (Generates a component named menu)
+- ng generate service services/dish (Generates a new service called dish)
+- ng g (short for ng generate)
+- ng g module app-routing (Generates a module called app-routing)
+
 
 ## Library vs Framework
 - Library - A collection of functions which are useful when writing web apps. Your code is in charge and it calls into the library when it sees fit. (Example jQuery)
