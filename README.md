@@ -22,6 +22,7 @@ Link: https://www.coursera.org/learn/angular
 - Angular material module - Provide layout components that can be used when designing new templates for Angular components.
 - Angular flex layout module - Provides support for using CSS flex within Angular templates for Angular components.
 - HammerJS - (Used by Angular for supporting some gestures within the Angular application)
+- Jasmine and Karma
 
 ## Angular and reactive programming (RxJS library)
 - This course consentrates on reactive programming with RxJS in Angular
@@ -84,6 +85,10 @@ Link: https://www.coursera.org/learn/angular
 - ng generate service services/dish (Generates a new service called dish)
 - ng g (short for ng generate)
 - ng g module app-routing (Generates a module called app-routing)
+- ng g directive directives/highlight (Create a directive called directive)
+- ng test (Angular CLI starts testing)
+- ng e2e (End to end tests using protractor)
+- ng build --prod (Build the angular application to production)
 
 
 ## Library vs Framework
