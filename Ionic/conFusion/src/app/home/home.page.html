@@ -7,6 +7,82 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Dish -->
 <ion-content>
+  <ion-card *ngIf="dish">
+    <ion-card-header>
+      <img src="{{ baseURL + dish.image }}" />
+      <ion-card-title>
+        {{ dish.name | uppercase  }}
+      </ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      <p>
+        {{ dish.description }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <div [hidden]="dish || dishErrMess">
+    <ion-spinner></ion-spinner>
+    <h4>Loading . . . Please wait</h4>
+  </div>
+  <div *ngIf="dishErrMess">
+    <h2>Error</h2>
+    <h4>{{ dishErrMess }}</h4>
+  </div>
+
+  <!-- Promotion -->
+  <ion-card *ngIf="promotion">
+    <ion-card-header>
+      <img src="{{baseURL + promotion.image}}" />
+      <ion-card-title>
+        {{ promotion.name | uppercase  }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        {{ promotion.description }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <div [hidden]="promotion || promotionErrMess">
+    <ion-spinner></ion-spinner>
+    <h4>Loading . . . Please wait</h4>
+  </div>
+  <div *ngIf="promotionErrMess">
+    <h2>Error</h2>
+    <h4>{{ promotionErrMess }}</h4>
+  </div>
+
+  <!-- Leader -->
+  <ion-card *ngIf="leader">
+    <ion-card-header>
+      <img src="{{ baseURL + leader.image}}" />
+      <ion-card-title>
+        {{ leader.name | uppercase  }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        {{ leader.designation }}
+      </p>
+      <p>
+        {{ leader.description }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <div [hidden]="leader || leaderErrMess">
+    <ion-spinner></ion-spinner>
+    <h4>Loading . . . Please wait</h4>
+  </div>
+  <div *ngIf="leaderErrMess">
+    <h2>Error</h2>
+    <h4>{{ leaderErrMess }}</h4>
+  </div>
 </ion-content>
