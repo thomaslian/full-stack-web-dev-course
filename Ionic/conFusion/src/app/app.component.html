@@ -3,13 +3,23 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
-
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+          <ion-list-header>Ristorante ConFusion</ion-list-header>
+          <ion-note>hi@restconfusion.com</ion-note>
+          <ion-menu-toggle *ngFor="let p of pages; let i = index">
+            <ion-item (click)="selectedIndex = i" [routerLink]="[p.url]" [class.selected]="selectedIndex == i" lines="none">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list id="pages-list">
+          <ion-list-header>Pages</ion-list-header>
+          
+          <ion-menu-toggle auto-hide="false" *ngFor="let n of appPages">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[n.url]" lines="none"
+              detail="false">
+              <ion-icon slot="start" [ios]="n.icon + '-outline'" [md]="n.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ n.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
