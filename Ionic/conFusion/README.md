@@ -6,3 +6,4 @@ Link: https://www.coursera.org/learn/angular
 ## Ionic CLI commands
 - ionic start conFusion sidemenu (Create a startup application named confusion with a sidemenu)
 - ionic serve --lab (serves the ionic application)
+- ionic integrations enable cordova (Enable cordova in the ionic application)
