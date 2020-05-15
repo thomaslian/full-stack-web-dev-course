@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPage implements OnInit {
 
-  dishes: Dish[];
   errMess: string;
 
   constructor() { }

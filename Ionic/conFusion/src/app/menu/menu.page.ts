@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Dish } from '../shared/Dish';
+import { DishService } from '../services/dish.service';
+import { DishdetailPage } from '../dishdetail/dishdetail.page'
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  dishes: Dish[];
+  errMess: string;
+
+  constructor(
+    private dishService: DishService,
+    private modalController: ModalController,
+    @Inject('BaseURL') private BaseURL
+  ) { }
 
   ngOnInit() {
+    this.dishService.getDishes()
+      .subscribe(dishes => this.dishes = dishes,
+        errmess => this.errMess = <any>errmess);
+  }
+
+  async presentModal(dish: Dish) {
+    const modal = await this.modalController.create({
+      component: DishdetailPage,
+      componentProps: {
+        'dish': dish
+      }
+    });
+    return await modal.present();
   }
 
 }

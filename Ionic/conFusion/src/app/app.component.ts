@@ -71,9 +71,11 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private location: Platform
   ) {
     this.initializeApp();
+
   }
 
   initializeApp() {

@@ -16,7 +16,7 @@
           <ion-list-header>Pages</ion-list-header>
           
           <ion-menu-toggle auto-hide="false" *ngFor="let n of appPages">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[n.url]" lines="none"
+            <ion-item (click)="selectedIndex = n" routerDirection="root" [routerLink]="[n.url]" lines="none"
               detail="false">
               <ion-icon slot="start" [ios]="n.icon + '-outline'" [md]="n.icon + '-sharp'"></ion-icon>
               <ion-label>{{ n.title }}</ion-label>

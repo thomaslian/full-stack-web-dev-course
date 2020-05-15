@@ -10,8 +10,8 @@
 <!-- Dish -->
 <ion-content>
   <ion-card *ngIf="dish">
+    <img src="{{ baseURL + dish.image }}" />
     <ion-card-header>
-      <img src="{{ baseURL + dish.image }}" />
       <ion-card-title>
         {{ dish.name | uppercase  }}
       </ion-card-title>
