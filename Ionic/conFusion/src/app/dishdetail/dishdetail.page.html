@@ -54,7 +54,19 @@
         <h3>{{ comment.comment}}</h3>
         <p>-- {{ comment.author }} {{comment.date | date }}</p>
       </ion-label>
-      <ion-note slot="end" color="primary">{{ comment.rating }} <ion-icon name="star-outline"></ion-icon></ion-note>
+      <ion-note slot="end" color="primary">{{ comment.rating }} <ion-icon name="star-outline"></ion-icon>
+      </ion-note>
     </ion-item>
   </ion-list>
+
+  <ion-fab [hidden]="favorite" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addToFavorites()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab *ngIf="favorite" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addToFavorites()">
+      <ion-icon name="heart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
