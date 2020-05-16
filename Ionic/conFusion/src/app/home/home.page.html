@@ -10,7 +10,7 @@
 <!-- Dish -->
 <ion-content>
   <ion-card *ngIf="dish">
-    <img src="{{ baseURL + dish.image }}" />
+    <ion-img src="{{ baseURL + dish.image }}"></ion-img>
     <ion-card-header>
       <ion-card-title>
         {{ dish.name | uppercase  }}
@@ -36,7 +36,7 @@
   <!-- Promotion -->
   <ion-card *ngIf="promotion">
     <ion-card-header>
-      <img src="{{baseURL + promotion.image}}" />
+      <ion-img src="{{baseURL + promotion.image}}"></ion-img>
       <ion-card-title>
         {{ promotion.name | uppercase  }}
       </ion-card-title>
@@ -61,7 +61,7 @@
   <!-- Leader -->
   <ion-card *ngIf="leader">
     <ion-card-header>
-      <img src="{{ baseURL + leader.image}}" />
+      <ion-img src="{{ baseURL + leader.image}}"></ion-img>
       <ion-card-title>
         {{ leader.name | uppercase  }}
       </ion-card-title>
