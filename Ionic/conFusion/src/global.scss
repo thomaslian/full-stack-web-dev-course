@@ -35,3 +35,13 @@ ion-toolbar {
 ion-toolbar ion-menu-button{
   color: white !important;
 }
+
+/* Set the warning color for the fab */
+ion-fab-button {
+  --background: var(--ion-color-warning);
+}
+
+/* Set the icons indside the fab to be white */
+ion-fab-button ion-icon {
+  color: white;
+}
