@@ -32,6 +32,11 @@ export class AppComponent implements OnInit {
       url: '/contact',
       icon: 'mail'
     },
+    {
+      title: 'My Favorites',
+      url: '/favorites',
+      icon: 'heart'
+    }
   ];
 
   public appPages = [

@@ -3,6 +3,7 @@ import { Dish } from '../shared/Dish';
 import { DishService } from '../services/dish.service';
 import { DishdetailPage } from '../dishdetail/dishdetail.page'
 import { ModalController } from '@ionic/angular';
+import { FavoriteService } from '../services/favorite.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,6 +17,7 @@ export class MenuPage implements OnInit {
 
   constructor(
     private dishService: DishService,
+    private favoriteService: FavoriteService,
     private modalController: ModalController,
     @Inject('BaseURL') private BaseURL
   ) { }
@@ -34,6 +36,11 @@ export class MenuPage implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  addToFavorites(dish: Dish){
+    console.log('Adding to favorites', dish.id);
+    this.favoriteService.addFavorite(dish.id);
   }
 
 }

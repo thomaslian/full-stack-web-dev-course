@@ -10,13 +10,14 @@
 
 
 <ion-content>
-    <div *ngIf="dishes">
-      <ion-card *ngFor="let dish of dishes"  (click)="presentModal(dish)">
-        <ion-img  src="{{BaseURL + dish.image}}"></ion-img>
-        <ion-card-title>{{ dish.name }}</ion-card-title>
-        <ion-card-content>{{ dish.description }}</ion-card-content>
-      </ion-card>
-    </div>
+  <div *ngIf="dishes">
+    <!-- Pan gesture does not work with Angular 4 and newer versions -->
+    <ion-card *ngFor="let dish of dishes" (click)="presentModal(dish)" (pan)="addToFavorites(dish)">
+      <ion-img src="{{BaseURL + dish.image}}"></ion-img>
+      <ion-card-title>{{ dish.name }}</ion-card-title>
+      <ion-card-content>{{ dish.description }}</ion-card-content>
+    </ion-card>
+  </div>
 
   <div [hidden]="dishes || errMess">
     <ion-spinner></ion-spinner>
