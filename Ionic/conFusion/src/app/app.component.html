@@ -6,15 +6,22 @@
           <ion-list-header>Ristorante ConFusion</ion-list-header>
           <ion-note>hi@restconfusion.com</ion-note>
           <ion-menu-toggle *ngFor="let p of pages; let i = index">
-            <ion-item (click)="selectedIndex = i" [routerLink]="[p.url]" [class.selected]="selectedIndex == i" lines="none">
+            <ion-item (click)="selectedIndex = i" [routerLink]="[p.url]" [class.selected]="selectedIndex == i"
+              lines="none">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item (click)="presentReservationModal()" [routerLink]="" lines="none">
+              <ion-icon slot="start" ios="call-outline" md="call-sharp"></ion-icon>
+              <ion-label>Reserve Table</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
         <ion-list id="pages-list">
           <ion-list-header>Pages</ion-list-header>
-          
+
           <ion-menu-toggle auto-hide="false" *ngFor="let n of appPages">
             <ion-item (click)="selectedIndex = n" routerDirection="root" [routerLink]="[n.url]" lines="none"
               detail="false">

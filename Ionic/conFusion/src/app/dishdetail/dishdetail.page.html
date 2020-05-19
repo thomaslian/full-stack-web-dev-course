@@ -23,7 +23,7 @@
     <ion-row>
       <ion-col>
         <ion-button fill="clear" size="small" slots="start">
-          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star"></ion-icon>
           <div>{{ avgStars }} stars</div>
         </ion-button>
       </ion-col>
@@ -54,7 +54,7 @@
         <h3>{{ comment.comment}}</h3>
         <p>-- {{ comment.author }} {{comment.date | date }}</p>
       </ion-label>
-      <ion-note slot="end" color="primary">{{ comment.rating }} <ion-icon name="star-outline"></ion-icon>
+      <ion-note slot="end" color="primary">{{ comment.rating }} <ion-icon name="star"></ion-icon>
       </ion-note>
     </ion-item>
   </ion-list>
