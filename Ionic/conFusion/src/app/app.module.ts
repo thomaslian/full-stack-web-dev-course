@@ -16,6 +16,7 @@ import { PromotionService } from "./services/promotion.service";
 import { ProcessHttpmsgService } from "./services/process-httpmsg.service";
 
 import { baseURL } from './shared/baseurl';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,9 @@ import { baseURL } from './shared/baseurl';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
