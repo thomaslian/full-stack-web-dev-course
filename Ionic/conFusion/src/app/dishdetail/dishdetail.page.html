@@ -4,6 +4,9 @@
     <ion-buttons slot="start">
       <ion-back-button (click)="dismissModal()" defaultHref="menu">Close</ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="presentActionSheet()"><ion-icon ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

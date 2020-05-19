@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Comment } from '../shared/Comment';
-import { ModalController, ToastController } from '@ionic/angular';
+import { ModalController, ToastController, ActionSheetController } from '@ionic/angular';
 import { Dish } from '../shared/Dish';
 import { FavoriteService } from '../services/favorite.service';
+import { CommentPage } from '../comment/comment.page';
 
 @Component({
   selector: 'app-dishdetail',
@@ -21,7 +22,8 @@ export class DishdetailPage implements OnInit {
     private modalController: ModalController,
     @Inject('BaseURL') private BaseURL,
     private favoriteService: FavoriteService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private actionSheetCtrl: ActionSheetController
   ) { }
 
   ngOnInit() {
@@ -39,9 +41,9 @@ export class DishdetailPage implements OnInit {
     this.modalController.dismiss();
   }
 
-  addToFavorites(){
+  addToFavorites() {
     console.log('Adding to favorites', this.dish.id);
-    this.favorite =  this.favoriteService.addFavorite(this.dish.id);
+    this.favorite = this.favoriteService.addFavorite(this.dish.id);
     this.presentToast(this.dish.id);
   }
 
@@ -51,6 +53,53 @@ export class DishdetailPage implements OnInit {
       duration: 3000
     });
     toast.present();
+  }
+
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Select actions',
+      buttons: [{
+        text: "Add to favorties",
+        handler: () => {
+          this.addToFavorites();
+        }
+      },
+      {
+        text: "Add Comment",
+        handler: () => {
+          this.presentReservationModal();
+        }
+      },
+      {
+        text: "Cancel",
+        role: "cancel",
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    })
+    actionSheet.present();
+  }
+
+  async presentReservationModal() {
+    const modal = await this.modalController.create({
+      component: CommentPage
+    });
+    modal.onDidDismiss()
+      .then((dataReturned) => {
+        if (dataReturned.data.author !== null ||  dataReturned.data.author !== "") {
+          this.dish.comments.push(dataReturned.data);
+
+          // Set number of comments
+          this.numComments = this.dish.comments.length;
+
+          // Calculate average starts again
+          let total = 0;
+          this.dish.comments.forEach(comment => total += comment.rating);
+          this.avgStars = (total / this.numComments).toFixed(2);
+        }
+      });
+    return await modal.present();
   }
 }
 
