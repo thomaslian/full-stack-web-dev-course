@@ -118,7 +118,7 @@ ion-item.selected {
   --color: var(--ion-color-primary);
 }
 
-.full-image {
-  width: 100000px;
-  height: auto;
+#inbox-list img {
+  display: block;
+  margin: 0 auto 0 auto;
 }
