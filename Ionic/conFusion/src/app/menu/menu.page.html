@@ -10,21 +10,28 @@
 
 
 <ion-content>
-  <div *ngIf="dishes">
-    <!-- Pan gesture does not work with Angular 4 and newer versions -->
-    <ion-card *ngFor="let dish of dishes" (click)="presentModal(dish)" (pan)="addToFavorites(dish)">
-      <ion-img src="{{BaseURL + dish.image}}"></ion-img>
-      <ion-card-title>{{ dish.name }}</ion-card-title>
-      <ion-card-content>{{ dish.description }}</ion-card-content>
-    </ion-card>
-  </div>
+  
+    <div *ngIf="dishes">
+      <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-lg="4" *ngFor="let dish of dishes">
+          <!-- Pan gesture does not work with Angular 4 and newer versions -->
+          <ion-card (click)="presentModal(dish)" (pan)="addToFavorites(dish)">
+            <ion-img src="{{BaseURL + dish.image}}"></ion-img>
+            <ion-card-title>{{ dish.name }}</ion-card-title>
+            <ion-card-content>{{ dish.description }}</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
 
-  <div [hidden]="dishes || errMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please wait</h4>
-  </div>
-  <div *ngIf="errMess">
-    <h2>Error</h2>
-    <h4>{{ errMess }}</h4>
-  </div>
+    <div [hidden]="dishes || errMess">
+      <ion-spinner></ion-spinner>
+      <h4>Loading . . . Please wait</h4>
+    </div>
+    <div *ngIf="errMess">
+      <h2>Error</h2>
+      <h4>{{ errMess }}</h4>
+    </div>
 </ion-content>

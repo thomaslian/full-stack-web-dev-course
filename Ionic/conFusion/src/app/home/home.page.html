@@ -9,82 +9,93 @@
 
 <!-- Dish -->
 <ion-content>
-  <ion-card *ngIf="dish">
-    <ion-img src="{{ baseURL + dish.image }}"></ion-img>
-    <ion-card-header>
-      <ion-card-title>
-        {{ dish.name | uppercase  }}
-      </ion-card-title>
-    </ion-card-header>
+  <ion-grid>
+    <ion-row class="ion-align-items-start">
+      <ion-col size="12" size-lg="4">
+        <ion-card *ngIf="dish">
+          <ion-img src="{{ baseURL + dish.image }}"></ion-img>
+          <ion-card-header>
+            <ion-card-title>
+              {{ dish.name | uppercase  }}
+            </ion-card-title>
+          </ion-card-header>
 
-    <ion-card-content>
-      <p>
-        {{ dish.description }}
-      </p>
-    </ion-card-content>
-  </ion-card>
+          <ion-card-content>
+            <p>
+              {{ dish.description }}
+            </p>
+          </ion-card-content>
+        </ion-card>
 
-  <div [hidden]="dish || dishErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please wait</h4>
-  </div>
-  <div *ngIf="dishErrMess">
-    <h2>Error</h2>
-    <h4>{{ dishErrMess }}</h4>
-  </div>
+        <div [hidden]="dish || dishErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading . . . Please wait</h4>
+        </div>
+        <div *ngIf="dishErrMess">
+          <h2>Error</h2>
+          <h4>{{ dishErrMess }}</h4>
+        </div>
+      </ion-col>
 
-  <!-- Promotion -->
-  <ion-card *ngIf="promotion">
-    <ion-card-header>
-      <ion-img src="{{baseURL + promotion.image}}"></ion-img>
-      <ion-card-title>
-        {{ promotion.name | uppercase  }}
-      </ion-card-title>
-    </ion-card-header>
 
-    <ion-card-content>
-      <p>
-        {{ promotion.description }}
-      </p>
-    </ion-card-content>
-  </ion-card>
+      <!-- Promotion -->
+      <ion-col size="12" size-lg="4">
+        <ion-card *ngIf="promotion">
+          <ion-card-header>
+            <ion-img src="{{baseURL + promotion.image}}"></ion-img>
+            <ion-card-title>
+              {{ promotion.name | uppercase  }}
+            </ion-card-title>
+          </ion-card-header>
 
-  <div [hidden]="promotion || promotionErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please wait</h4>
-  </div>
-  <div *ngIf="promotionErrMess">
-    <h2>Error</h2>
-    <h4>{{ promotionErrMess }}</h4>
-  </div>
+          <ion-card-content>
+            <p>
+              {{ promotion.description }}
+            </p>
+          </ion-card-content>
+        </ion-card>
 
-  <!-- Leader -->
-  <ion-card *ngIf="leader">
-    <ion-card-header>
-      <ion-img src="{{ baseURL + leader.image}}"></ion-img>
-      <ion-card-title>
-        {{ leader.name | uppercase  }}
-      </ion-card-title>
-    </ion-card-header>
+        <div [hidden]="promotion || promotionErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading . . . Please wait</h4>
+        </div>
+        <div *ngIf="promotionErrMess">
+          <h2>Error</h2>
+          <h4>{{ promotionErrMess }}</h4>
+        </div>
+      </ion-col>
 
-    <ion-card-content>
-      <p>
-        {{ leader.designation }}
-      </p>
-      <p>
-        {{ leader.description }}
-      </p>
-    </ion-card-content>
-  </ion-card>
+      <!-- Leader -->
+      <ion-col size="12" size-lg="4">
+        <ion-card *ngIf="leader">
+          <ion-card-header>
+            <ion-img src="{{ baseURL + leader.image}}"></ion-img>
+            <ion-card-title>
+              {{ leader.name | uppercase  }}
+            </ion-card-title>
+          </ion-card-header>
 
-  <div [hidden]="leader || leaderErrMess">
-    <ion-spinner></ion-spinner>
-    <h4>Loading . . . Please wait</h4>
-  </div>
-  <div *ngIf="leaderErrMess">
-    <h2>Error</h2>
-    <h4>{{ leaderErrMess }}</h4>
-  </div>
+          <ion-card-content>
+            <p>
+              {{ leader.designation }}
+            </p>
+            <p>
+              {{ leader.description }}
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+        <div [hidden]="leader || leaderErrMess">
+          <ion-spinner></ion-spinner>
+          <h4>Loading . . . Please wait</h4>
+        </div>
+        <div *ngIf="leaderErrMess">
+          <h2>Error</h2>
+          <h4>{{ leaderErrMess }}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <!-- Fab button -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
