@@ -4,6 +4,7 @@ import { Platform, ModalController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ReservationPage } from './reservation/reservation.page';
+import { LoginPage } from './login/login.page';
 
 @Component({
   selector: 'app-root',
@@ -98,6 +99,13 @@ export class AppComponent implements OnInit {
   async presentReservationModal() {
     const modal = await this.modalController.create({
       component: ReservationPage
+    });
+    return await modal.present();
+  }
+
+  async presentLoginModal() {
+    const modal = await this.modalController.create({
+      component: LoginPage
     });
     return await modal.present();
   }

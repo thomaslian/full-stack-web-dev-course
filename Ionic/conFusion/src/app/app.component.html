@@ -19,10 +19,16 @@
               <ion-label>Reserve Table</ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item (click)="presentLoginModal()" [routerLink]="" lines="none">
+              <ion-icon slot="start" ios="log-in-outline" md="log-in-sharp"></ion-icon>
+              <ion-label>Login</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
+
         <ion-list id="pages-list">
           <ion-list-header>Pages</ion-list-header>
-
           <ion-menu-toggle auto-hide="false" *ngFor="let n of appPages">
             <ion-item (click)="selectedIndex = n" routerDirection="root" [routerLink]="[n.url]" lines="none"
               detail="false">
