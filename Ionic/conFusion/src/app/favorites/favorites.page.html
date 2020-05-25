@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="favorites">
-    <ion-list>
+  <div *ngIf="favorites">  
+     <ion-list>
       <ion-item-sliding *ngFor="let favorite of favorites" #item>
         <ion-item>
           <ion-thumbnail slot="start">

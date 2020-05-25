@@ -9,6 +9,10 @@ Link: https://www.coursera.org/learn/angular
 - ionic integrations enable cordova (Enable cordova in the ionic application)
 - ionic g page about (Generates a page named about)
 - ionic g service services/Dish (Generates a service named Dish)
+- ionic cordova platform add android (Add Android as a platform)
+- ionic cordova build android (Build for Android)
+- ionic cordova emulate android (Emulate Android and deploy the app to it)
+- ionic cordova run android (Deploy app to an running Android device)
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/

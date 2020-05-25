@@ -4,6 +4,7 @@ import { ModalController, ToastController, ActionSheetController } from '@ionic/
 import { Dish } from '../shared/Dish';
 import { FavoriteService } from '../services/favorite.service';
 import { CommentPage } from '../comment/comment.page';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-dishdetail',
@@ -17,18 +18,21 @@ export class DishdetailPage implements OnInit {
   avgStars: string;
   numComments: number;
   favorite: boolean = false;
+  favorites: Array<any> = [];
 
   constructor(
     private modalController: ModalController,
     @Inject('BaseURL') private BaseURL,
     private favoriteService: FavoriteService,
     private toastCtrl: ToastController,
-    private actionSheetCtrl: ActionSheetController
+    private actionSheetCtrl: ActionSheetController,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
     this.numComments = this.dish.comments.length;
 
+    // Sets this favorite to true or false depending if it is a favorite or not 
     this.favorite = this.favoriteService.isFavorite(this.dish.id);
 
     let total = 0;
@@ -42,9 +46,16 @@ export class DishdetailPage implements OnInit {
   }
 
   addToFavorites() {
-    console.log('Adding to favorites', this.dish.id);
-    this.favorite = this.favoriteService.addFavorite(this.dish.id);
-    this.presentToast(this.dish.id);
+    // Store this dish id as the favorite
+    if (!this.favoriteService.isFavorite(this.dish.id)) {
+      this.favoriteService.addFavorite(this.dish.id);
+      this.favorite = true;
+      console.log('Dish ' + this.dish.id + " added as favorite")
+      this.presentToast(this.dish.id);
+    } else {
+      console.log('Dish is already a favorite', this.dish.id);
+    }
+
   }
 
   async presentToast(id: number) {
@@ -87,7 +98,7 @@ export class DishdetailPage implements OnInit {
     });
     modal.onDidDismiss()
       .then((dataReturned) => {
-        if (dataReturned.data.author !== null ||  dataReturned.data.author !== "") {
+        if (dataReturned.data.author !== null || dataReturned.data.author !== "") {
           this.dish.comments.push(dataReturned.data);
 
           // Set number of comments

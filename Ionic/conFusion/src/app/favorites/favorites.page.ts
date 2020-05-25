@@ -3,6 +3,7 @@ import { FavoriteService } from '../services/favorite.service';
 import { Dish } from '../shared/Dish';
 import { IonItemSliding, ToastController, LoadingController, AlertController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.page.html',
@@ -22,10 +23,17 @@ export class FavoritesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.favoriteService.getFavorites()
-      .subscribe(favorites => this.favorites = favorites,
-        errMess => this.errMess = errMess)
+      this.favoriteService.getFavorites()
+        .subscribe(favorites => this.favorites = favorites,
+          errMess => this.errMess = errMess);
+
+    console.log(this.favorites);
   }
+
+  getFavorites() {
+
+  }
+
 
   async deleteFavorite(item: IonItemSliding, id: number) {
     console.log('delete', id);
