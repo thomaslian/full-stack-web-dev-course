@@ -14,6 +14,8 @@ Link: https://www.coursera.org/learn/angular
 - ionic cordova emulate android (Emulate Android and deploy the app to it)
 - ionic cordova run android (Deploy app to an running Android device)
 - ionic cordova resources (Automatically prepare resources icon and splash image files)
+- ionic cordova plugin add de.appplant.cordova.plugin.local-notification (Install cordova plugin "local-notification")
+- npm install --save @ionic-native/local-notifications (Install ionic feature local notification)
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/

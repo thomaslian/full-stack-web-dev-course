@@ -4,6 +4,7 @@ import { Observable, empty } from 'rxjs';
 import { Dish } from '../shared/Dish';
 import { map, delay } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class FavoriteService {
 
   constructor(
     private storage: Storage,
-    private dishService: DishService
-
+    private dishService: DishService,
+    private localNotifications: LocalNotifications
   ) {
     // Wait for the storage to become ready
     this.storage.ready().then(() => {
@@ -30,6 +31,12 @@ export class FavoriteService {
     if (!this.isFavorite(id)) {
       this.favorites.push(id);
       this.storage.set('favorites', this.favorites);
+
+      // Give the user a notification when the favorite is added
+      this.localNotifications.schedule({
+        id: id,
+        text: 'Dish ' + id + " added as a favorite!"
+      })
     }
     return true;
   }

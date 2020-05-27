@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     StatusBar,
     SplashScreen,
     DishService,
+    LocalNotifications,
     LeaderService,
     PromotionService,
     ProcessHttpmsgService,

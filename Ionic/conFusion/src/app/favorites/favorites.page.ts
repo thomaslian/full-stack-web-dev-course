@@ -30,10 +30,6 @@ export class FavoritesPage implements OnInit {
     console.log(this.favorites);
   }
 
-  getFavorites() {
-
-  }
-
 
   async deleteFavorite(item: IonItemSliding, id: number) {
     console.log('delete', id);
