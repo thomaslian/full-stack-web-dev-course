@@ -13,6 +13,7 @@ Link: https://www.coursera.org/learn/angular
 - ionic cordova build android (Build for Android)
 - ionic cordova emulate android (Emulate Android and deploy the app to it)
 - ionic cordova run android (Deploy app to an running Android device)
+- ionic cordova resources (Automatically prepare resources icon and splash image files)
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/
