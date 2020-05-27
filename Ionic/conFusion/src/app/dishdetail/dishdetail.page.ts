@@ -5,6 +5,7 @@ import { Dish } from '../shared/Dish';
 import { FavoriteService } from '../services/favorite.service';
 import { CommentPage } from '../comment/comment.page';
 import { Storage } from '@ionic/storage';
+import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 
 @Component({
   selector: 'app-dishdetail',
@@ -26,7 +27,7 @@ export class DishdetailPage implements OnInit {
     private favoriteService: FavoriteService,
     private toastCtrl: ToastController,
     private actionSheetCtrl: ActionSheetController,
-    private storage: Storage
+    private socialSharing: SocialSharing
   ) { }
 
   ngOnInit() {
@@ -79,6 +80,28 @@ export class DishdetailPage implements OnInit {
         text: "Add Comment",
         handler: () => {
           this.presentReservationModal();
+        }
+      },
+      {
+        text: "Share via Facebook",
+        handler: () => {
+          this.socialSharing.shareViaFacebook(
+            this.dish.name + ' -- ' + this.dish.description,
+            this.BaseURL + this.dish.image, 
+            '')
+          .then(() => console.log('Posted successfully to Facebook'))
+          .catch(() => console.log('Failed to post to Facebook'));
+        }
+      },
+      {
+        text: "Share via Twitter",
+        handler: () => {
+          this.socialSharing.shareViaTwitter(
+            this.dish.name + ' -- ' + this.dish.description,
+            this.BaseURL + this.dish.image, 
+            '')
+          .then(() => console.log('Posted successfully to Twitter'))
+          .catch(() => console.log('Failed to post to Twitter'));
         }
       },
       {

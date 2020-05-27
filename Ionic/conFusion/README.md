@@ -18,6 +18,8 @@ Link: https://www.coursera.org/learn/angular
 - npm install --save @ionic-native/local-notifications (Install ionic feature local notification)
 - ionic cordova plugin add cordova-plugin-email
 - npm install --save @ionic-native/email-composer
+- ionic cordova plugin add cordova-plugin-x-socialsharing
+npm install --save @ionic-native/social-sharing
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/
