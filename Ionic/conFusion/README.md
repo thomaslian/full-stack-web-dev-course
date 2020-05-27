@@ -16,6 +16,8 @@ Link: https://www.coursera.org/learn/angular
 - ionic cordova resources (Automatically prepare resources icon and splash image files)
 - ionic cordova plugin add de.appplant.cordova.plugin.local-notification (Install cordova plugin "local-notification")
 - npm install --save @ionic-native/local-notifications (Install ionic feature local notification)
+- ionic cordova plugin add cordova-plugin-email
+- npm install --save @ionic-native/email-composer
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/

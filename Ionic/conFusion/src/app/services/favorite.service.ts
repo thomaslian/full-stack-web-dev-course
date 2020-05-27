@@ -22,7 +22,11 @@ export class FavoriteService {
     this.storage.ready().then(() => {
       // Get favorites id from storage
       this.storage.get('favorites').then(favorites => {
+        if (favorites) {
         this.favorites = favorites;
+        } else {
+          this.favorites = [];
+        }
       });
     });
   }
