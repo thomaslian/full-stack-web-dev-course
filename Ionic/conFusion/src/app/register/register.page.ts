@@ -41,7 +41,7 @@ export class RegisterPage implements OnInit {
       targetWidth: 100,
       correctOrientation: true,
       allowEdit: true,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.PNG,
       mediaType: this.camera.MediaType.PICTURE,
       cameraDirection: this.camera.Direction.FRONT
@@ -49,7 +49,7 @@ export class RegisterPage implements OnInit {
 
     this.camera.getPicture(options).then((imageData) => {
 
-      this.image = imageData;
+      this.image = "data:image/jpeg;base64," + imageData;
       console.log(imageData);
     }, (err) => {
       console.log('Error obtaining picture')
