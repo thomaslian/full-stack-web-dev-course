@@ -25,4 +25,7 @@
     </ion-item>
     <ion-button type="submit" [disabled]="!loginForm.valid">Login</ion-button>
   </form>
+
+  <p>Do not have an account?</p>
+  <ion-button clear (click)="presentRegisterModal()">Register</ion-button>
 </ion-content>
