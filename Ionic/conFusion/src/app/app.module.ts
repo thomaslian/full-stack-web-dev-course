@@ -10,6 +10,7 @@ import { EmailComposer } from "@ionic-native/email-composer/ngx";
 import { SocialSharing } from "@ionic-native/social-sharing/ngx";
 import { Camera } from "@ionic-native/camera/ngx";
 import { Network } from "@ionic-native/network/ngx";
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -48,6 +49,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     Camera,
     SocialSharing,
     Network,
+    CallNumber,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: 'BaseURL', useValue: baseURL }
   ],
