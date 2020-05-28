@@ -22,6 +22,8 @@ Link: https://www.coursera.org/learn/angular
 - npm install --save @ionic-native/social-sharing
 - ionic cordova plugin add cordova-plugin-camera
 - npm install --save @ionic-native/camera
+- ionic cordova plugin add cordova-plugin-network-information
+- npm install --save @ionic-native/network
 
 ## Links
 - https://ionicframework.com/blog/navigating-the-change-with-ionic-4-and-angular-router/
