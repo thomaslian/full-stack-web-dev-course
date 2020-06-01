@@ -9,3 +9,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 
 ## npm CLI
 - v. 6.14.5
+
+## Keywords
+- NodeJS
+- Postman
