@@ -18,9 +18,11 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 ## Node modules for server development
 - Express
 - Morgan
+- Body-parser
 
 ## Keywords
 - NodeJS
 - Postman
 - Express
 - Morgan
+- Body-parser
