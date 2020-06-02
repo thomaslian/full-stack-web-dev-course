@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const dishRouter = require('./routes/dishRouter');
+const promoRouter = require('./routes/promoRouter');
+const leaderRouter = require('./routes/leaderRouter');
 
 const hostname = 'localhost';
 const port = 3000;
@@ -15,6 +17,8 @@ app.use(bodyParser.json());
 
 // Mount the dishRouter, and it will use the link '/dishes'
 app.use('/dishes', dishRouter);
+app.use('/promotions', promoRouter);
+app.use('/leaders', leaderRouter);
 
 // Look at the this folder (public folder) to serve static html files
 app.use(express.static(__dirname+ '/public'));
