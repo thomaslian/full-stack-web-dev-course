@@ -11,14 +11,20 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install express@"^4.0.0" (Install and acceptminor version) 
 - "--save", saves the module in the dependencies list
 - npm install morgan
+- npm install -g express-generator
 
 ## npm CLI
 - v. 6.14.5
+
+## Express generator commands
+- express conFusionServer (Creates an express app called conFusionServer)
+- npm install (Do this in app folder after creation)
 
 ## Node modules for server development
 - Express
 - Morgan
 - Body-parser
+- Express generator
 
 ## Keywords
 - NodeJS
@@ -26,3 +32,4 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Express
 - Morgan
 - Body-parser
+- Express generator
