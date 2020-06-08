@@ -13,15 +13,7 @@ exports.insertDocument = (db, document, collection, callback) => {
     // Get the collection from the right database
     const coll = db.collection(collection);
     // Enter the document that should be inserted
-    coll.insert(document, (err, result) => {
-        // Check if error is null, if it is not null it will print 
-        // an error and quit the application
-        assert.equal(err, null);
-        console.log("Inserted " + result.result.n +
-            " documents into the collection " + collection);
-        // Pass the result back to the calling function
-        callback(result);
-    });
+    return coll.insert(document);
 }
 
 /* 
@@ -35,13 +27,7 @@ exports.findDocuments = (db, collection, callback) => {
     // Get the collection from the right database
     const coll = db.collection(collection);
     // Get all the documents in the collection
-    coll.find({}).toArray((err, docs) => {
-        // Check if error is null, if it is not null it will print 
-        // an error and quit the application
-        assert.equal(err, null);
-        // Pass the result back to the calling function
-        callback(docs);
-    });
+    return coll.find({}).toArray();
 }
 
 /* 
@@ -56,13 +42,7 @@ exports.removeDocument = (db, document, collection, callback) => {
     // Get the collection from the right database
     const coll = db.collection(collection);
     // Delete a document
-    coll.deleteOne(document, (err, result) => {
-        // Check if error is null
-        assert.equal(err, null);
-        console.log("Removed the document ", document);
-        // Pass the result back to the calling function
-        callback(result);
-    });
+    return coll.deleteOne(document);
 }
 
 /* 
@@ -79,11 +59,5 @@ exports.updateDocument = (db, document, update, collection, callback) => {
     const coll = db.collection(collection);
     // Update a document, "$set: update" is which fields of the document that
     // needs to be updated
-    coll.updateOne(document, { $set: update }, null, (err, result) => {
-        // Check if error is null
-        assert.equal(err, null);
-        console.log("Updated the document with ", update);
-        // Pass the result back to the calling function
-        callback(result);
-    });
+    return coll.updateOne(document, { $set: update }, null);
 }
