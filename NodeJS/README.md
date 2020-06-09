@@ -14,6 +14,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install -g express-generator
 - npm install mongodb --save
 - npm install assert@1.4.1 --save
+- npm install mongoose --save
 
 ## npm CLI
 - v. 6.14.5
@@ -40,6 +41,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Morgan
 - Body-parser
 - Express generator
+- Mongoose
 
 ## Keywords
 - NodeJS
@@ -49,3 +51,4 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Body-parser
 - Express generator
 - MongoDB
+- Mongoose
