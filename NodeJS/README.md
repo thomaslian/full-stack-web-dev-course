@@ -15,6 +15,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install mongodb --save
 - npm install assert@1.4.1 --save
 - npm install mongoose --save
+- npm install mongoose mongoose-currency --save
 
 ## npm CLI
 - v. 6.14.5
