@@ -50,7 +50,7 @@ dishRouter.route('/')
             .catch((err) => next(err));
     });
 
-// DISH
+// DISH WITH ID
 dishRouter.route('/:dishId')
     // Get dish with ID
     .get((req, res, next) => {
@@ -163,6 +163,7 @@ dishRouter.route('/:dishId/comments')
         .catch((err) => next(err));    
     });
 
+// COMMENT WITH ID
 dishRouter.route('/:dishId/comments/:commentId')
     // Get comment with ID
     .get((req, res, next) => {
