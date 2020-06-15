@@ -17,6 +17,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install mongoose --save
 - npm install mongoose mongoose-currency --save
 - npm install express-session session-file-store 
+- npm install passport passport-local passport-local-mongoose@5.0.1 --save
 
 ## npm CLI
 - v. 6.14.5
@@ -47,6 +48,9 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Cookie parser
 - express-session
 - session-file-store 
+- passport
+- passport-local
+- passport-local-mongoose
 
 ## Keywords
 - NodeJS
@@ -60,3 +64,6 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Cookie parser
 - express-session
 - session-file-store 
+- passport
+- passport-local
+- passport-local-mongoose

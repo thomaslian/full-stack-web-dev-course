@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
+var passport = require('passport');
+var authenticate = require('./authenticate');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -43,6 +45,10 @@ app.use(session({
   store: new FileStore()
 }));
 
+// Passport will autimatically serialize the user information and store it in the session
+app.use(passport.initialize());
+app.use(passport.session());
+
 // This can be accessed without user authentication
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -51,26 +57,18 @@ function auth(req, res, next) {
   console.log(req.session);
 
   // Check if the signed cookie does not contain the user property
-  if (!req.session.user) {
+  if (!req.user) {
     var err = new Error('You are not authenticated!');
-    err.status = 401;
+    err.status = 403;
     // Reject access and make the user enter the username and password
     return next(err);
   }
   // If the cookie exist (contains the user property) 
   else {
-    // Check if the user is authenticated
-    if (req.session.user === 'authenticated') {
-      next();
-    } else {
-      var err = new Error('You are not authenticated!');
-
-      res.setHeader('WWW-Authenticate', 'Basic');
-      err.status = 401;
-      return next(err);
-    }
+    next();
   }
 }
+
 
 // Authenticate the user (If not authenticated, the user will not have access to the below)
 app.use(auth);
