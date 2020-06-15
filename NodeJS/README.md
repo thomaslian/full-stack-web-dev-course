@@ -16,6 +16,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install assert@1.4.1 --save
 - npm install mongoose --save
 - npm install mongoose mongoose-currency --save
+- npm install express-session session-file-store 
 
 ## npm CLI
 - v. 6.14.5
@@ -43,6 +44,9 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Body-parser
 - Express generator
 - Mongoose
+- Cookie parser
+- express-session
+- session-file-store 
 
 ## Keywords
 - NodeJS
@@ -53,3 +57,6 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - Express generator
 - MongoDB
 - Mongoose
+- Cookie parser
+- express-session
+- session-file-store 
