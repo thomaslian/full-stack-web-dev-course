@@ -31,37 +31,57 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('12345-67890-09876-54321'));
 
 function auth(req, res, next) {
-  console.log(req.headers);
+  console.log(req.signedCookies);
 
-  var authHeader = req.headers.authorization;
+  // Check if the signed cookie does not contain the user property
+  if (!req.signedCookies.user) {
+    var authHeader = req.headers.authorization;
 
-  if (!authHeader) {
-    var err = new Error('You are not authenticated!');
+    // Check if the authorization header is not avilable
+    if (!authHeader) {
+      var err = new Error('You are not authenticated!');
 
-    res.setHeader('WWW-Authenticate', 'Basic');
-    err.status = 401;
-    next(err);
+      res.setHeader('WWW-Authenticate', 'Basic');
+      err.status = 401;
+      // Reject access and make the user enter the username and password
+      return next(err);
+    }
+
+    // Splits the base64 from the string and stores it in auth
+    // Split it again to get the username and password. 
+    var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
+
+    var username = auth[0];
+    var password = auth[1];
+
+    // If the username is admin and password is password
+    if (username == 'admin' && password == 'password') {
+      // Set up the cookie
+      res.cookie('user', 'admin', { signed: true });
+      next();
+    } else {
+      var err = new Error('You are not authenticated!');
+
+      res.setHeader('WWW-Authenticate', 'Basic');
+      err.status = 401;
+      return next(err);
+    }
   }
+  // If the cookie exist (contains the user property) 
+  else {
+    // Check if the username is "admin"
+    if (req.signedCookies.user === 'admin') {
+      next();
+    } else {
+      var err = new Error('You are not authenticated!');
 
-  // Splits the base64 from the string and stores it in auth
-  // Split it again to get the username and password. 
-  var auth = new Buffer(authHeader.split(' ')[1], 'base64').toString().split(':');
-
-  var username = auth[0];
-  var password = auth[1];
-
-  // If the username is admin and password is password
-  if (username == 'admin' && password == 'password') {
-    next();
-  } else {
-    var err = new Error('You are not authenticated!');
-
-    res.setHeader('WWW-Authenticate', 'Basic');
-    err.status = 401;
-    next(err);
+      res.setHeader('WWW-Authenticate', 'Basic');
+      err.status = 401;
+      return next(err);
+    }
   }
 }
 
