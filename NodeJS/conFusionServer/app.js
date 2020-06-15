@@ -43,47 +43,24 @@ app.use(session({
   store: new FileStore()
 }));
 
+// This can be accessed without user authentication
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
 function auth(req, res, next) {
   console.log(req.session);
 
   // Check if the signed cookie does not contain the user property
   if (!req.session.user) {
-    var authHeader = req.headers.authorization;
-
-    // Check if the authorization header is not avilable
-    if (!authHeader) {
-      var err = new Error('You are not authenticated!');
-
-      res.setHeader('WWW-Authenticate', 'Basic');
-      err.status = 401;
-      // Reject access and make the user enter the username and password
-      return next(err);
-    }
-
-    // Splits the base64 from the string and stores it in auth
-    // Split it again to get the username and password. 
-    var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-
-    var username = auth[0];
-    var password = auth[1];
-
-    // If the username is admin and password is password
-    if (username == 'admin' && password == 'password') {
-      // Set up the cookie
-      req.session.user = 'admin';
-      next();
-    } else {
-      var err = new Error('You are not authenticated!');
-
-      res.setHeader('WWW-Authenticate', 'Basic');
-      err.status = 401;
-      return next(err);
-    }
+    var err = new Error('You are not authenticated!');
+    err.status = 401;
+    // Reject access and make the user enter the username and password
+    return next(err);
   }
   // If the cookie exist (contains the user property) 
   else {
-    // Check if the username is "admin"
-    if (req.session.user === 'admin') {
+    // Check if the user is authenticated
+    if (req.session.user === 'authenticated') {
       next();
     } else {
       var err = new Error('You are not authenticated!');
@@ -95,12 +72,11 @@ function auth(req, res, next) {
   }
 }
 
+// Authenticate the user (If not authenticated, the user will not have access to the below)
 app.use(auth);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 // Mount the dishRouter, and it will use the link '/dishes'
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
