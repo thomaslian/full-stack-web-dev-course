@@ -18,6 +18,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install mongoose mongoose-currency --save
 - npm install express-session session-file-store 
 - npm install passport passport-local passport-local-mongoose@5.0.1 --save
+- npm install passport-jwt jsonwebtoken --save
 
 ## npm CLI
 - v. 6.14.5
@@ -51,6 +52,9 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport
 - passport-local
 - passport-local-mongoose
+- passport-jwt
+- jsonwebtoken
+
 
 ## Keywords
 - NodeJS

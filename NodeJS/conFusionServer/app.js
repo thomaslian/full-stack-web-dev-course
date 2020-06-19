@@ -7,6 +7,7 @@ var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 var passport = require('passport');
 var authenticate = require('./authenticate');
+var config = require('./config');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -18,7 +19,7 @@ const mongoose = require('mongoose');
 
 const Dishes = require('./models/dishes');
 
-const url = 'mongodb://localhost:27017/conFusion';
+const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 
 // Connect to the database server
@@ -37,41 +38,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
-app.use(session({
-  name: 'session-id',
-  secret: '12345-67890-09876-54321',
-  saveUninitialized: false,
-  resave: false,
-  store: new FileStore()
-}));
-
-// Passport will autimatically serialize the user information and store it in the session
+// Passport will autimatically serialize the user information
 app.use(passport.initialize());
-app.use(passport.session());
 
 // This can be accessed without user authentication
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-function auth(req, res, next) {
-  console.log(req.session);
-
-  // Check if the signed cookie does not contain the user property
-  if (!req.user) {
-    var err = new Error('You are not authenticated!');
-    err.status = 403;
-    // Reject access and make the user enter the username and password
-    return next(err);
-  }
-  // If the cookie exist (contains the user property) 
-  else {
-    next();
-  }
-}
-
-
-// Authenticate the user (If not authenticated, the user will not have access to the below)
-app.use(auth);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

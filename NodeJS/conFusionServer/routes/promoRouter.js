@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const authenticate = require('../authenticate');
 
 const Promotions = require('../models/promotions');
 
@@ -23,7 +24,7 @@ promoRouter.route('/')
             .catch((err) => next(err));
     })
     // Post new promotion
-    .post((req, res, next) => {
+    .post(authenticate.verifyUser, (req, res, next) => {
         // req.body includes the new Promotion, so use it as a parameter
         Promotions.create(req.body)
             .then((Promotion) => {
@@ -35,12 +36,12 @@ promoRouter.route('/')
             .catch((err) => next(err));
     })
     // Update an existing promotion (not supported)
-    .put((req, res, next) => {
+    .put(authenticate.verifyUser, (req, res, next) => {
         res.statusCode = 403;
         res.end('PUT operation not supported on /promotions');
     })
     // Delete promotions
-    .delete((req, res, next) => {
+    .delete(authenticate.verifyUser, (req, res, next) => {
         Promotions.remove({})
             .then((resp) => {
                 res.statusCode = 200;
@@ -65,12 +66,12 @@ promoRouter.route('/:promoId')
             .catch((err) => next(err));
     })
     // Post new promotion with ID (not supported)
-    .post((req, res, next) => {
+    .post(authenticate.verifyUser, (req, res, next) => {
         res.statusCode = 403;
         res.end('POST operation not supported on /promotions/' + req.params.promoId);
     })
     // Update an existing promotion with ID
-    .put((req, res, next) => {
+    .put(authenticate.verifyUser, (req, res, next) => {
         Promotions.findByIdAndUpdate(req.params.promoId, {
             $set: req.body
         }, { new: true })
@@ -82,7 +83,7 @@ promoRouter.route('/:promoId')
             .catch((err) => next(err));
     })
     // Delete promotion with ID
-    .delete((req, res, next) => {
+    .delete(authenticate.verifyUser, (req, res, next) => {
         Promotions.findByIdAndRemove(req.params.promoId)
         .then((resp) => {
             res.statusCode = 200;
