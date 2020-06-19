@@ -39,6 +39,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - db.dishes.find() (Print out the documents in the database)
 - db.dishes.find().pretty() (Prints the documents in a more readable way)
 - exit (To go out of the mongo command line)
+- db.users.drop() (Delets all the users in the users document)
 
 ## Node modules for server development
 - Express
@@ -71,3 +72,5 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport
 - passport-local
 - passport-local-mongoose
+- passport-jwt
+- jsonwebtoken
