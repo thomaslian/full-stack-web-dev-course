@@ -19,6 +19,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install express-session session-file-store 
 - npm install passport passport-local passport-local-mongoose@5.0.1 --save
 - npm install passport-jwt jsonwebtoken --save
+- npm install multer@1.3.1 --save
 
 ## npm CLI
 - v. 6.14.5
@@ -63,6 +64,7 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport-local-mongoose
 - passport-jwt
 - jsonwebtoken
+- multer
 
 
 ## Keywords
@@ -82,3 +84,4 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport-local-mongoose
 - passport-jwt
 - jsonwebtoken
+- multer
