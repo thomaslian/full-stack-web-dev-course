@@ -41,6 +41,14 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - exit (To go out of the mongo command line)
 - db.users.drop() (Delets all the users in the users document)
 
+## Generating a SSL key
+- openssl genrsa 1024 > private.key - Generate a private key - Windows: After installing OpenSSL
+- openssl req -new -key private.key -out cert.csr - Generate a cert.csr
+- openssl x509 -req -in cert.csr -signkey private.key -out cerfificate.pem - Generate a certificate
+- https://wiki.openssl.org/index.php/Binaries (Different OpenSSL distrubutions)
+- https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/ (Install openssl on windows)
+- http://www.selfsignedcertificate.com/ (Self signed SSL key for testing purposes)
+
 ## Node modules for server development
 - Express
 - Morgan

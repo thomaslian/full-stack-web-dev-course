@@ -24,7 +24,7 @@ promoRouter.route('/')
             .catch((err) => next(err));
     })
     // Post new promotion
-    .post(authenticate.verifyUser, (req, res, next) => {
+    .post(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         // req.body includes the new Promotion, so use it as a parameter
         Promotions.create(req.body)
             .then((Promotion) => {
@@ -36,12 +36,12 @@ promoRouter.route('/')
             .catch((err) => next(err));
     })
     // Update an existing promotion (not supported)
-    .put(authenticate.verifyUser, (req, res, next) => {
+    .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         res.statusCode = 403;
         res.end('PUT operation not supported on /promotions');
     })
     // Delete promotions
-    .delete(authenticate.verifyUser, (req, res, next) => {
+    .delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Promotions.remove({})
             .then((resp) => {
                 res.statusCode = 200;
@@ -66,12 +66,12 @@ promoRouter.route('/:promoId')
             .catch((err) => next(err));
     })
     // Post new promotion with ID (not supported)
-    .post(authenticate.verifyUser, (req, res, next) => {
+    .post(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         res.statusCode = 403;
         res.end('POST operation not supported on /promotions/' + req.params.promoId);
     })
     // Update an existing promotion with ID
-    .put(authenticate.verifyUser, (req, res, next) => {
+    .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Promotions.findByIdAndUpdate(req.params.promoId, {
             $set: req.body
         }, { new: true })
@@ -83,7 +83,7 @@ promoRouter.route('/:promoId')
             .catch((err) => next(err));
     })
     // Delete promotion with ID
-    .delete(authenticate.verifyUser, (req, res, next) => {
+    .delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Promotions.findByIdAndRemove(req.params.promoId)
         .then((resp) => {
             res.statusCode = 200;

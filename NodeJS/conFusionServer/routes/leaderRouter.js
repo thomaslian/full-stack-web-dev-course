@@ -24,7 +24,7 @@ leaderRouter.route('/')
             .catch((err) => next(err));
     })
     // Post new leader
-    .post(authenticate.verifyUser, (req, res, next) => {
+    .post(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         // req.body includes the new leader, so use it as a parameter
         Leaders.create(req.body)
             .then((leader) => {
@@ -36,12 +36,12 @@ leaderRouter.route('/')
             .catch((err) => next(err));
     })
     // Update an existing leader (not supported)
-    .put(authenticate.verifyUser, (req, res, next) => {
+    .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         res.statusCode = 403;
         res.end('PUT operation not supported on /leaders');
     })
     // Delete leaders
-    .delete(authenticate.verifyUser, (req, res, next) => {
+    .delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Leaders.remove({})
             .then((resp) => {
                 res.statusCode = 200;
@@ -66,12 +66,12 @@ leaderRouter.route('/:leaderId')
             .catch((err) => next(err));
     })
     // Post new leader with ID (not supported)
-    .post(authenticate.verifyUser, (req, res, next) => {
+    .post(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         res.statusCode = 403;
         res.end('POST operation not supported on /leaders/' + req.params.leaderId);
     })
     // Update an existing leader with ID
-    .put(authenticate.verifyUser, (req, res, next) => {
+    .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Leaders.findByIdAndUpdate(req.params.leaderId, {
             $set: req.body
         }, { new: true })
@@ -83,7 +83,7 @@ leaderRouter.route('/:leaderId')
             .catch((err) => next(err));
     })
     // Delete leader with ID
-    .delete(authenticate.verifyUser, (req, res, next) => {
+    .delete(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
         Leaders.findByIdAndRemove(req.params.leaderId)
             .then((resp) => {
                 res.statusCode = 200;
