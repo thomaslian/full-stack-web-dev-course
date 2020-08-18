@@ -20,6 +20,8 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - npm install passport passport-local passport-local-mongoose@5.0.1 --save
 - npm install passport-jwt jsonwebtoken --save
 - npm install multer@1.3.1 --save
+- npm install cors@2.8.4 --save
+- npm install passport-facebook-token@3.3.0 --save
 
 ## npm CLI
 - v. 6.14.5
@@ -65,6 +67,8 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport-jwt
 - jsonwebtoken
 - multer
+- cors
+- passport-facebook-token
 
 
 ## Keywords
@@ -85,3 +89,5 @@ Link: https://www.coursera.org/learn/server-side-nodejs
 - passport-jwt
 - jsonwebtoken
 - multer
+- cors
+- passport-facebook-token
